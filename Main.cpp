@@ -5,7 +5,8 @@
 int main() {
     POINT position{1920 / 2, 1080 / 2};
     int radius = 400;
-    double speed = 1, angle = 0;
+    int speed = 10;
+    double angle = 0;
     bool toggled = false;
 
     while (true) {
@@ -16,7 +17,7 @@ int main() {
                 float y = position.y + radius * sin(angle);
                 SetCursorPos(x, y);
                 angle += 0.05;
-                std::this_thread::sleep_for(std::chrono::milliseconds(10));
+                std::this_thread::sleep_for(std::chrono::milliseconds(speed));
             }
 
             if (GetAsyncKeyState(VK_F1)) {
