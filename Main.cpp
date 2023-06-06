@@ -3,7 +3,11 @@
 #include <thread>
 
 int main() {
-    POINT position{1920 / 2, 1080 / 2};
+    RECT rect;
+    const HWND hDesktop = GetDesktopWindow();
+    GetWindowRect(hDesktop, &rect);
+
+    POINT position{rect.right / 2, rect.bottom / 2};
     int radius = 400;
     int speed = 10;
     double angle = 0;
